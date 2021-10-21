@@ -19,7 +19,7 @@ export class AppComponent {
   }
 
   private importJSON() {
-    this.expenseDetails = expenseData["default"];
+    this.expenseDetails = expenseData['default'];
     // this._httpClient.get('./expense_sample.json').subscribe(
     //   (data) => {
     //     this.expenseDetails = data;
