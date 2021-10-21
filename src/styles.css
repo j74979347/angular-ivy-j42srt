@@ -1,0 +1,27 @@
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+.list-overlay {
+  width: 200px;
+  border: solid 1px gray;
+  border-radius: 5px;
+  background: #d6f1f8;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+
+.list-overlay > li {
+  list-style-type: none;
+  border-bottom: solid 1px #8b8b8b;
+  padding: 18px 0;
+}
+
+.list-overlay > li:last-child {
+  border-bottom: none;
+}
+
+table, tr , td, th {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px; 
+  }

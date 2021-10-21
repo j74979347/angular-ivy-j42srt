@@ -1,0 +1,42 @@
+<hello name="{{ name }}"></hello>
+
+<table>
+  <tr>
+    <th>WHO</th>
+    <th>WEEK</th>
+  </tr>
+  <tr *ngFor="let expense of expenseDetails; let i = index">
+    <td>
+      {{ expense.WHO }}
+    </td>
+    <td>
+      <tr *ngFor="let weekDetails of expense.WEEK; let j = index">
+        <td>
+          {{weekDetails.NUMBER}}
+        </td>
+        <td>
+          <button 
+            (click)="populateOverlay(i, j)" 
+            cdkOverlayOrigin #openExpenseOverlay="cdkOverlayOrigin">Expense Details</button>
+          <ng-template *ngIf="i == whoIndex && j == whereIndex"
+            cdkConnectedOverlay 
+            [cdkConnectedOverlayOrigin]="openExpenseOverlay"
+            [cdkConnectedOverlayOpen]="overlayOpen"
+            (overlayOutsideClick)="overlayOpen = false">
+              <ul class="list-overlay">
+                <li *ngFor="let overlayItem of overlayData">
+                  {{overlayItem.WHAT}} : {{overlayItem.AMOUNT}} <br />
+                </li>
+              </ul>
+          </ng-template>
+        </td>
+      </tr>
+    </td>
+  </tr>
+</table>
+
+// Read from a JSON file [expense_sample.json] and show output as a table.
+<br />
+// Manage/click on the individual table line items [Add a link / button / click
+on a row] <br />
+// Display individual item on an overlay or a different page. <br />
